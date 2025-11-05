@@ -1,1 +1,407 @@
+:root {
+    --green-700: #386641;
+    /* deep evergreen */
+    --green-500: #6b9080;
+    /* sage banner */
+    --green-300: #9cc5a1;
+    /* light leaf */
+    --purple-600: #6b56a3;
+    /* primary accent */
+    --purple-400: #9273cf;
+    /* light accent */
+    --ink-900: #222222;
+    /* text */
+    --paper-50: #fdfdfd;
+    /* page bg */
+}
 
+html {
+    scroll-behavior: smooth;
+}
+
+/* reset / base */
+* {
+    box-sizing: border-box;
+}
+
+h1,
+h2,
+h3 {
+    font-family: 'Playfair Display', serif;
+    color: var(--green-700);
+}
+
+body {
+    font-family: Lato, system-ui, -apple-system, sans-serif;
+    color: var(--ink-900);
+    background: var(--paper-50);
+    margin: 0;
+    line-height: 1.6;
+}
+
+/* Typographic rhythm and readability */
+:root {
+    --max-width: 70ch;
+}
+
+section p {
+    max-width: var(--max-width);
+}
+
+/* Slightly larger default font on big screens */
+@media (min-width: 1024px) {
+    body {
+        font-size: 18px;
+    }
+}
+
+/* Improve link focus/hover contrast in header */
+.site-header nav a {
+    padding: .25rem .125rem;
+    border-radius: .25rem;
+}
+
+.site-header nav a:focus,
+.site-header nav a:hover {
+    background: rgba(56, 102, 65, 0.08);
+    text-decoration: none;
+}
+
+/* header */
+.site-header {
+    position: sticky;
+    top: 0;
+    z-index: 10;
+    /* important for dropdown positioning */
+    background: #fff;
+    color: var(--green-700);
+    padding: 0.8rem 2rem;
+    display: grid;
+    grid-template-columns: auto 1fr auto;
+    /* logo | title | nav/button */
+    align-items: center;
+    gap: 0.75rem;
+    border-bottom: 1px solid #ddd;
+}
+
+header h1 {
+    margin: 0.5rem 0;
+    font-size: 1.8rem;
+    letter-spacing: 0.5px;
+}
+
+.logo {
+    width: 84px;
+    height: auto;
+    display: block;
+    margin: 0;
+    border-radius: 0;
+}
+
+/* nav (desktop baseline) */
+nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    gap: 1.5rem;
+    justify-content: center;
+    font-family: 'Lato', sans-serif;
+}
+
+nav a {
+    color: var(--green-700);
+    text-decoration: none;
+    font-weight: 600;
+}
+
+nav a:hover {
+    text-decoration: underline;
+}
+
+/* images */
+img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 10px;
+}
+
+/* buttons & focus */
+.btn {
+    display: inline-block;
+    background: var(--green-700);
+    color: #fff;
+    padding: 0.8rem 1.3rem;
+    border-radius: 0.6rem;
+    text-decoration: none;
+    font-weight: 600;
+    transition: background 0.3s ease;
+}
+
+.btn:hover {
+    background: #2f5a39;
+}
+
+a:focus,
+.btn:focus {
+    outline: 3px solid var(--purple-400);
+    outline-offset: 2px;
+    border-radius: .4rem;
+}
+
+/* hero */
+.hero {
+    position: relative;
+    min-height: 75vh;
+    display: grid;
+    place-items: center;
+    text-align: center;
+    color: white;
+    background: url("sunset.jpg") center/cover no-repeat fixed;
+    padding: 5rem 1rem;
+}
+
+.hero::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.45);
+}
+
+.hero>* {
+    position: relative;
+    z-index: 1;
+}
+
+.hero h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(1.8rem, 4vw, 2.8rem);
+    line-height: 1.2;
+    color: #fff;
+    margin-bottom: 1rem;
+}
+
+.hero p {
+    color: #f0f0f0;
+    max-width: 600px;
+    margin: 0 auto 1.5rem;
+    font-size: 1.05rem;
+}
+
+/* translucent background behind hero text */
+.hero-text {
+    background: rgba(0, 0, 0, 0.45);
+    /* 45% black */
+    padding: 1.2rem 1.5rem;
+    border-radius: 0.8rem;
+    max-width: 700px;
+    margin: 0 auto;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
+}
+
+.hero img {
+    display: none;
+}
+
+/* sections */
+section {
+    padding: 4rem 1.5rem;
+    text-align: center;
+}
+
+section h2 {
+    color: var(--green-700);
+    font-family: 'Playfair Display', serif;
+}
+
+section p {
+    max-width: 650px;
+    margin: 0.5rem auto;
+}
+
+/* mobile toggle button (hidden on desktop) */
+.nav-toggle {
+    display: none;
+    background: #fff;
+    border: 1px solid #ddd;
+    border-radius: .5rem;
+    padding: .4rem .6rem;
+    font-size: 1.1rem;
+    line-height: 1;
+    color: var(--green-700);
+    cursor: pointer;
+}
+
+/* subtle shadow when scrolling */
+.site-header.scrolled {
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
+    transition: box-shadow 0.3s ease;
+}
+
+/* smaller title on very small phones */
+@media (max-width: 600px) {
+    header h1 {
+        font-size: 1rem;
+        line-height: 1.1;
+    }
+}
+
+/* MOBILE DROPDOWN (fade/slide) */
+@media (max-width: 800px) {
+    .nav-toggle {
+        display: inline-block;
+    }
+
+    /* dropdown panel (always flex, visually collapsed) */
+    .site-header nav ul {
+        position: absolute;
+        left: 0;
+        right: 0;
+        top: calc(100% + 1px);
+        margin: 0;
+        padding: .75rem 1rem;
+        background: #fff;
+        border-top: 1px solid #eee;
+        display: flex;
+        flex-direction: column;
+        gap: .75rem;
+        text-align: center;
+        z-index: 9;
+
+        /* hidden state */
+        max-height: 0;
+        opacity: 0;
+        transform: translateY(-0.5rem);
+        overflow: hidden;
+        visibility: hidden;
+
+        /* transitions */
+        transition:
+            max-height .25s ease,
+            opacity .25s ease,
+            transform .25s ease,
+            visibility 0s linear .25s;
+        /* delay hiding until fade finishes */
+    }
+
+    /* open state */
+    .site-header.open nav ul {
+        max-height: 240px;
+        opacity: 1;
+        transform: translateY(0);
+        visibility: visible;
+        transition:
+            max-height .30s ease,
+            opacity .30s ease,
+            transform .30s ease,
+            visibility 0s;
+        /* show immediately */
+    }
+
+    /* bigger tap targets */
+    nav a {
+        padding: .5rem .25rem;
+    }
+}
+
+/* ensure hero doesn’t get covered if menu drops */
+@media (max-width: 800px) {
+    .site-header.open+.hero {
+        padding-top: 1rem;
+    }
+}
+
+/* ===== Footer ===== */
+.site-footer {
+    background: #0f1a15;
+    color: #e9f3ef;
+    padding-top: 2rem;
+    margin-top: 2rem;
+}
+
+.site-footer a {
+    color: #cfe9df;
+    text-decoration: none;
+}
+
+.site-footer a:hover {
+    text-decoration: underline;
+}
+
+.footer-inner {
+    width: min(1100px, 92%);
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1.2fr 1fr 1.2fr;
+    gap: 1.5rem;
+    align-items: start;
+}
+
+.footer-logo {
+    width: 48px;
+    height: auto;
+    border-radius: 0;
+    display: block;
+    margin-bottom: .5rem;
+}
+
+.footer-name {
+    margin: 0;
+    font-weight: 700;
+}
+
+.footer-tag {
+    margin: .25rem 0 0;
+    opacity: .9;
+}
+
+.footer-nav ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: grid;
+    gap: .5rem;
+}
+
+.footer-nav a {
+    font-weight: 600;
+}
+
+.footer-contact p {
+    margin: .25rem 0;
+}
+
+.footer-social {
+    margin-top: .5rem;
+}
+
+.footer-bottom {
+    border-top: 1px solid rgba(255, 255, 255, .12);
+    margin-top: 1.5rem;
+    padding: .75rem 0;
+    text-align: center;
+    font-size: .95rem;
+}
+
+.footer-bottom a {
+    color: #d7f3ea;
+}
+
+/* Mobile footer layout */
+@media (max-width: 800px) {
+    .footer-inner {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+    }
+
+    .footer-bottom {
+        font-size: .9rem;
+    }
+}
+
+.pllc {
+    font-size: 0.7em;
+    font-weight: 400;
+    letter-spacing: 0.05em;
+    opacity: 0.85;
+}
