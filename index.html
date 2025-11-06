@@ -118,7 +118,12 @@
 
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600&family=Lato:wght@400;600&display=swap"
     rel="stylesheet">
+
+  <!-- Preload hero image for faster first paint -->
+  <link rel="preload" as="image" href="sunset.jpg" imagesrcset="sunset.jpg">
+
   <link rel="stylesheet" href="styles.css">
+
 </head>
 
 <body>
@@ -134,8 +139,11 @@
     <nav id="primary-nav" aria-label="Primary">
       <ul>
         <li><a href="#home">Home</a></li>
-        <li><a href="#about">About</a></li>
-        <li><a href="#contact">Contact</a></li>
+        <li><a href="services/">Services</a></li>
+
+
+        <li><a href="#contact" class="scroll-link">Contact</a></li>
+
       </ul>
     </nav>
   </header>
@@ -143,7 +151,7 @@
 
 
   <section id="home" class="hero">
-    <h2>Supporting your journey toward healing and peace.</h2>
+    <h1>Supporting your journey toward healing and peace.</h1>
 
     <div class="hero-text">
       <p>I’m a deeply compassionate and highly skilled therapist who uses proven approaches to help adults heal from
@@ -152,31 +160,103 @@
       </p>
     </div>
 
-    <a href="tel:18018001700" class="btn">Call (801) 800-1700</a>
+    <div class="cta-group" role="group" aria-label="Contact options to schedule a session">
+      <a class="btn btn-primary" href="tel:18018001700"
+        aria-label="Call Happy Valley Counseling at 801-800-1700 to schedule a session">
+        <span class="i" aria-hidden="true">📞</span>
+        Call to schedule a session (801) 800-1700
+      </a>
 
-    <img src="sunset.jpg" alt="Sunset over Happy Valley">
+      <a class="btn" href="sms:18018001700"
+        aria-label="Text Happy Valley Counseling at 801-800-1700 to schedule a session">
+        <span class="i" aria-hidden="true">💬</span>
+        Text to schedule a session (801) 800-1700
+      </a>
+
+      <a class="btn"
+        href="mailto:sylwia@happyvalleycounselingutah.com?subject=Schedule%20a%20session&body=Hello%2C%20I%E2%80%99d%20like%20to%20schedule%20a%20therapy%20session."
+        aria-label="Email Happy Valley Counseling to schedule a session">
+        <span class="i" aria-hidden="true">✉️</span>
+        Email to schedule a session
+      </a>
+    </div>
+
+
+
+
+
+
   </section>
 
 
-
-
-  <section id="about">
-    <h2>About</h2>
-    <p>Happy Valley Counseling, PLLC is dedicated to providing compassionate and effective counseling services.</p>
+  <section id="services-intro">
+    <h2>Therapy Services</h2>
+    <p>I help adults with depression, anxiety, trauma/PTSD, OCD, relationship distress, bipolar disorder, grief,
+      sczhizophrenia,
+      and substance use concerns.</p>
+    <p>
+      <a class="btn btn-primary" href="services/">Explore services</a>
+    </p>
   </section>
+
+
+  <!-- ===== THERAPIST BIO ===== -->
+  <section id="therapist-bio">
+    <h2>Therapist Bio</h2>
+    <div class="bio-wrap">
+      <img src="therapist-photo.jpg" alt="Sylwia Hardman, LCSW" class="bio-photo">
+      <h3 class="bio-name">Sylwia Hardman, LCSW</h3>
+
+      <div class="bio-text">
+
+
+        <p>No matter how hard things are for you right now, I am confident I can help you on your healing journey. I
+          love working with adults of all ages, including senior citizens, and I strive to provide a calm, safe,
+          accepting, and growth-oriented space.</p>
+
+        <p>I came to the United States as a refugee from Poland during the Cold War. In my first years in America, I
+          lived in abject poverty and experienced a variety of traumatic events. Those experiences shaped my deep
+          empathy for people who suffer. After a long healing journey of my own, I chose to become a therapist to help
+          others.</p>
+
+        <p>I earned my master’s degree in social work from Utah Valley University. I have a special fondness and empathy
+          for the most vulnerable and marginalized people in our community. I focus on helping people heal by addressing
+          traumatic experiences, increasing self-compassion, and teaching practical skills to cope with everyday
+          stressors.</p>
+
+        <p>I am married and have five children. I have two Australian Cattle Dogs and I foster and
+          rehome other heelers. My hobbies include hiking, reading, gardening, nature photography, and spending time
+          with friends and family.</p>
+
+        <img src="family-photo.jpg" alt="Photograph of Sylwia Hardman with her family" class="bio-photo family-photo">
+
+        <p class="photo-caption">Sylwia with her family in Orem, Utah</p>
+
+      </div>
+    </div>
+  </section>
+
 
   <section id="contact">
     <h2>Contact</h2>
     <p><strong>Phone:</strong> <a href="tel:+18018001700">(801) 800-1700</a></p>
     <p><strong>Email:</strong> <a
         href="mailto:sylwia@happyvalleycounselingutah.com">sylwia@happyvalleycounselingutah.com</a></p>
-    <p><strong>Address:</strong> 532 E 800 N, Orem, UT 84097</p>
+    <p><strong>Address:</strong>
+      <a href="https://www.google.com/maps/search/?api=1&query=532%20E%20800%20N%2C%20Orem%2C%20UT%2084097"
+        target="_blank" rel="noopener" aria-label="Open 532 E 800 N, Orem, UT 84097 on Google Maps">
+        532 E 800 N, Orem, UT 84097
+      </a>
+    </p>
+
+
 
   </section>
   <footer class="site-footer" role="contentinfo" aria-label="Footer">
     <div class="footer-inner">
       <div class="footer-brand">
-        <img src="logo-clear.png" alt="" class="footer-logo" aria-hidden="true">
+        <img src="logo-whitebg.png" alt="Happy Valley Counseling logo" class="footer-logo">
+
         <p class="footer-name">Happy Valley Counseling, <span class="pllc">PLLC</span></p>
         <p class="footer-tag">Compassionate therapy in Orem, Utah</p>
       </div>
@@ -184,18 +264,29 @@
       <nav class="footer-nav" aria-label="Footer links">
         <ul>
           <li><a href="#home">Home</a></li>
-          <li><a href="#about">About</a></li>
+          <li><a href="#therapy-services">Services</a></li>
           <li><a href="#contact">Contact</a></li>
         </ul>
       </nav>
+
 
       <div class="footer-contact">
         <p><strong>Phone:</strong> <a href="tel:+18018001700">(801) 800-1700</a></p>
         <p><strong>Email:</strong> <a
             href="mailto:sylwia@happyvalleycounselingutah.com">sylwia@happyvalleycounselingutah.com</a></p>
-        <p><strong>Address:</strong> 532 E 800 N, Orem, UT 84097</p>
+        <p><strong>Address:</strong>
+          <a href="https://www.google.com/maps/search/?api=1&query=532%20E%20800%20N%2C%20Orem%2C%20UT%2084097"
+            target="_blank" rel="noopener" aria-label="Open 532 E 800 N, Orem, UT 84097 on Google Maps">
+            532 E 800 N, Orem, UT 84097
+          </a>
+        </p>
+
+
+
+
         <p class="footer-social">
-          <a href="https://www.psychologytoday.com/profile/1217703" target="_blank" rel="noopener">Psychology Today</a>
+          <a href="https://www.psychologytoday.com/profile/1217703" target="_blank" rel="noopener">Psychology
+            Today</a>
           ·
           <a href="https://www.facebook.com/HappyValleyCounselingUtah" target="_blank" rel="noopener">Facebook</a> ·
           <a href="https://www.instagram.com/happyvalleycounselingutah/" target="_blank" rel="noopener">Instagram</a>
@@ -204,10 +295,12 @@
     </div>
 
     <div class="footer-bottom">
-      <p>© <span id="year"></span> Happy Valley Counseling, PLLC. All rights reserved. <a href="#home">Back to top ↑</a>
+      <p>© <span id="year"></span> Happy Valley Counseling, PLLC. All rights reserved. <a href="#home">Back to top
+          ↑</a>
       </p>
     </div>
   </footer>
+
 
   <script src="index.js"></script>
 </body>
