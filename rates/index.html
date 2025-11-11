@@ -8,6 +8,21 @@
     <title>Rates &amp; Insurance | Happy Valley Counseling, PLLC</title>
     <meta name="description"
         content="Therapy rates and accepted insurance for Happy Valley Counseling in Orem, Utah. In network with major plans; private pay and HSA/FSA accepted." />
+    <!-- SEO and Social Metadata -->
+    <link rel="canonical" href="https://www.happyvalleycounselingutah.com/rates/">
+
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://www.happyvalleycounselingutah.com/rates/">
+    <meta property="og:title" content="Rates & Insurance | Happy Valley Counseling, Orem UT">
+    <meta property="og:description"
+        content="Transparent therapy rates and accepted insurance plans for clients in Orem and across Utah.">
+    <meta property="og:image" content="https://www.happyvalleycounselingutah.com/images/og-image.jpg">
+
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Rates & Insurance | Happy Valley Counseling">
+    <meta name="twitter:description"
+        content="Affordable, compassionate therapy. In-network with most Utah insurance plans.">
+    <meta name="twitter:image" content="https://www.happyvalleycounselingutah.com/images/og-image.jpg">
 
     <!-- Performance for Google Fonts -->
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -16,6 +31,14 @@
     <link
         href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600&family=Lato:wght@400;600&display=swap"
         rel="stylesheet">
+    <!-- Favicons + theme color -->
+    <link rel="icon" href="/favicon.ico">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png">
+    <link rel="icon" type="image/png" sizes="192x192" href="/android-chrome-192.png">
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+    <meta name="theme-color" content="#2f6e5a">
+    <!-- Preload hero image for faster visual load -->
+    <link rel="preload" as="image" href="/images/hero-rates.jpg" type="image/jpeg">
 
     <link rel="stylesheet" href="/styles.css">
 
@@ -35,54 +58,55 @@
         <!-- Primary navigation -->
         <nav id="primary-nav" aria-label="Primary">
             <ul>
-                <li><a href="/">Home</a></li>
+                <li><a href="../">Home</a></li>
                 <li><a href="../services/">Services</a></li>
-                <li><a href="/rates/" aria-current="page">Rates &amp; Insurance</a></li>
-                <li><a href="/#contact" class="scroll-link">Contact</a></li>
+                <li><a href="./" aria-current="page">Rates &amp; Insurance</a></li>
+                <li><a href="../#contact" class="scroll-link">Contact</a></li>
             </ul>
         </nav>
+
     </header>
-
-    <!-- ===== Hero (matches homepage exactly, with new words) ===== -->
-    <section id="rates-hero" class="hero hero-insurance">
-
-        <h1>Rates & Insurance</h1>
-
-        <div class="hero-text">
-            <p>Insurance and payment made simple, so you can focus on healing</p>
-        </div>
-
-        <div class="cta-group" role="group" aria-label="Contact options to schedule a session">
-            <a class="btn btn-primary" href="tel:+18018001700"
-                aria-label="Call Happy Valley Counseling at 801-800-1700 to schedule a session">
-                <span class="i" aria-hidden="true">📞</span>
-                Call (801) 800-1700
-            </a>
-
-            <a href="https://www.therapyportal.com/p/happyvalley84097/" class="btn schedule-btn" target="_blank"
-                rel="noopener noreferrer" aria-label="Schedule an appointment securely through the client portal">
-                Schedule Appointment Online
-            </a>
-
-
-            <a class="btn"
-                href="mailto:sylwia@happyvalleycounselingutah.com?subject=Schedule%20a%20session&body=Hello%2C%20I%E2%80%99d%20like%20to%20schedule%20a%20therapy%20session."
-                aria-label="Email Happy Valley Counseling to schedule a session">
-                <span class="i" aria-hidden="true">✉️</span>
-                Email to schedule a session
-            </a>
-        </div>
-
-
-
-
-
-
-    </section>
-
-
-
     <main>
+        <!-- ===== Hero (matches homepage exactly, with new words) ===== -->
+        <section id="rates-hero" class="hero hero-insurance">
+
+            <h1>Rates & Insurance</h1>
+
+            <div class="hero-text">
+                <p>Insurance and payment made simple, so you can focus on healing</p>
+            </div>
+
+            <div class="cta-group" role="group" aria-label="Contact options to schedule a session">
+                <a class="btn btn-primary" href="tel:+18018001700"
+                    aria-label="Call Happy Valley Counseling at 801-800-1700 to schedule a session">
+                    <span class="i" aria-hidden="true">📞</span>
+                    Call to schedule (801) 800-1700
+                </a>
+
+                <a href="https://www.therapyportal.com/p/happyvalley84097/" class="btn schedule-btn" target="_blank"
+                    rel="noopener noreferrer" aria-label="Schedule an appointment securely through the client portal">
+                    Schedule Appointment Online
+                </a>
+
+
+                <a class="btn"
+                    href="mailto:sylwia@happyvalleycounselingutah.com?subject=Schedule%20a%20session&body=Hello%2C%20I%E2%80%99d%20like%20to%20schedule%20a%20therapy%20session."
+                    aria-label="Email Happy Valley Counseling to schedule a session">
+                    <span class="i" aria-hidden="true">✉️</span>
+                    Email to schedule a session
+                </a>
+            </div>
+
+
+
+
+
+
+        </section>
+
+
+
+
         <!-- ===== In-Network Insurance ===== -->
         <section id="insurance" class="center-section purple-tint">
 
@@ -109,8 +133,9 @@
 
         <!-- ===== Private Pay Section (flipped) ===== -->
         <section class="split-section alt">
-            <img src="../images/private-pay.jpg" alt="Cozy window light with greenery for a peaceful mood"
+            <img src="../images/private-pay.jpg" loading="lazy" alt="Light purple wild flowers for a peaceful mood"
                 class="split-image left" />
+
             <div class="split-text right">
                 <h2>Private Pay Rate</h2>
                 <p>$100 per 60 min session</p>
@@ -131,7 +156,8 @@
             <div class="closing-box">
                 <h3>Not sure about your coverage?</h3>
                 <p>I can help you confirm your benefits or discuss payment options.</p>
-                <p><a class="btn" href="/#contact">Contact me</a></p>
+                <p><a class="btn" href="../#contact">Contact me</a></p>
+
             </div>
         </section>
 
@@ -139,20 +165,25 @@
 
     <!-- ===== Footer (exact structure as homepage; paths adjusted) ===== -->
     <footer class="site-footer" role="contentinfo" aria-label="Footer">
-        <div class="footer-inner">
+        <!-- Top area: brand, nav, contact -->
+        <div class="footer-top">
             <div class="footer-brand">
-                <img src="../images/logo-whitebg.png" alt="Happy Valley Counseling logo" class="footer-logo">
+                <img src="../images/logo-whitebg.png" alt="Happy Valley Counseling logo" class="footer-logo" width="48"
+                    height="48">
+
                 <p class="footer-name">Happy Valley Counseling, <span class="pllc">PLLC</span></p>
                 <p class="footer-tag">Compassionate therapy in Orem, Utah</p>
             </div>
 
             <nav class="footer-nav" aria-label="Footer links">
                 <ul>
-                    <li><a href="/">Home</a></li>
+                    <li><a href="../">Home</a></li>
                     <li><a href="../services/">Services</a></li>
-                    <li><a href="/#contact">Contact</a></li>
+                    <li><a href="./" aria-current="page">Rates &amp; Insurance</a></li>
+                    <li><a href="../#contact">Contact</a></li>
                 </ul>
             </nav>
+
 
             <div class="footer-contact">
                 <p><strong>Phone:</strong> <a href="tel:+18018001700">(801) 800-1700</a></p>
@@ -160,7 +191,7 @@
                         href="mailto:sylwia@happyvalleycounselingutah.com">sylwia@happyvalleycounselingutah.com</a></p>
                 <p><strong>Address:</strong>
                     <a href="https://www.google.com/maps/search/?api=1&query=532%20E%20800%20N%2C%20Orem%2C%20UT%2084097"
-                        target="_blank" rel="noopener" aria-label="Open 532 E 800 N, Orem, UT 84097 on Google Maps">
+                        target="_blank" rel="noopener">
                         532 E 800 N, Orem, UT 84097
                     </a>
                 </p>
@@ -175,11 +206,15 @@
             </div>
         </div>
 
+        <!-- Bottom bar -->
         <div class="footer-bottom">
-            <p>© <span id="year"></span> Happy Valley Counseling, PLLC. All rights reserved. <a href="/">Back to top
-                    ↑</a></p>
+            <p>© <span id="year"></span> Happy Valley Counseling, PLLC. All rights reserved.
+                <a href="#rates-hero">Back to top ↑</a>
+            </p>
         </div>
+
     </footer>
+
 
     <!-- Same JS file as homepage (one level up) -->
     <script src="/index.js"></script>
