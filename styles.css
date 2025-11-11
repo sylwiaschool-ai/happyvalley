@@ -15,6 +15,21 @@
     /* page bg */
 }
 
+/* Hide visually but keep readable for screen readers (WCAG accessible) */
+.visually-hidden {
+    position: absolute !important;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0 0 0 0);
+    white-space: nowrap;
+    border: 0;
+}
+
+
+
 :root {
     /* ...your existing vars... */
     --header-offset: 84px;
@@ -261,6 +276,14 @@ a:focus,
     background: rgba(0, 0, 0, 0.40);
 }
 
+/* === Rates & Insurance: page-specific hero === */
+#rates-hero {
+    background-image: url('/images/hero-rates.jpg');
+    background-attachment: scroll;
+    /* optional: avoid parallax here */
+}
+
+
 .hero>* {
     position: relative;
     z-index: 1;
@@ -427,7 +450,7 @@ section p {
     text-decoration: underline;
 }
 
-.footer-inner {
+.footer-top {
     width: min(1100px, 92%);
     margin: 0 auto;
     display: grid;
@@ -474,6 +497,9 @@ section p {
     margin-top: .5rem;
 }
 
+
+
+
 .footer-bottom {
     border-top: 1px solid rgba(255, 255, 255, .12);
     margin-top: 1.5rem;
@@ -488,9 +514,13 @@ section p {
 
 /* Mobile footer layout */
 @media (max-width: 800px) {
-    .footer-inner {
+    .footer-top {
         grid-template-columns: 1fr;
         gap: 1rem;
+    }
+
+    .footer-nav ul {
+        justify-items: center;
     }
 
     .footer-bottom {
@@ -715,4 +745,162 @@ section[id] {
     :root {
         --header-offset: 96px;
     }
+}
+
+/* ---------- Rates & Insurance Page ---------- */
+
+
+.split-section {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    padding: 4rem 2rem;
+    gap: 2rem;
+}
+
+.split-section.alt {
+    background-color: #f7f8f7;
+}
+
+/* Remove bullet points in the Insurance section */
+#insurance ul {
+    list-style: none;
+    padding-left: 0;
+    margin-left: 0;
+}
+
+#insurance li {
+    margin: 0.25rem 0;
+    /* optional spacing */
+}
+
+.split-image {
+    flex: 1 1 45%;
+    border-radius: 1rem;
+    max-height: 400px;
+    object-fit: cover;
+}
+
+.split-text {
+    flex: 1 1 45%;
+    color: #222;
+    line-height: 1.6;
+}
+
+.split-text h2 {
+    color: #386641;
+    margin-bottom: 1rem;
+}
+
+/* Buttons */
+.btn {
+    background-color: #386641;
+    color: #fff;
+    padding: 0.75rem 1.5rem;
+    border-radius: 0.5rem;
+    text-decoration: none;
+    font-weight: 600;
+}
+
+.btn:hover {
+    background-color: #6b9080;
+}
+
+/* Responsive layout */
+@media (max-width: 768px) {
+    .split-section {
+        flex-direction: column;
+    }
+
+    .split-image,
+    .split-text {
+        flex: 1 1 100%;
+    }
+}
+
+
+
+#rates-hero h1 {
+    display: block;
+    margin-bottom: 1rem;
+}
+
+#rates-hero .hero-text {
+    display: block;
+    margin: 0 auto 1.5rem;
+    max-width: 60ch;
+}
+
+#rates-hero .cta-group {
+    display: flex;
+    flex-wrap: wrap;
+    /* allows buttons to wrap on mobile */
+    justify-content: center;
+    gap: 0.75rem;
+    /* space between buttons */
+}
+
+
+
+/* === CTA faint background image === */
+.closing-cta {
+    position: relative;
+    text-align: center;
+    padding: 4rem 1.5rem;
+    background-color: #fdfdfd;
+    /* fallback color */
+    color: #222;
+    overflow: hidden;
+    /* keeps overlay inside section */
+}
+
+.closing-cta::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: url('/images/private-pay.jpg') center/cover no-repeat;
+    opacity: 0.25;
+    /* 25% opacity */
+    z-index: 0;
+}
+
+.closing-cta .closing-box {
+    position: relative;
+    z-index: 1;
+    /* keeps text above faint image */
+    background: rgba(255, 255, 255, 0.75);
+    /* soft white layer for contrast */
+    padding: 2rem;
+    border-radius: 0.8rem;
+    display: inline-block;
+    max-width: 700px;
+    margin: 0 auto;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+}
+
+/* Full-width soft lavender background for In-Network section */
+.purple-tint {
+    background: linear-gradient(to bottom,
+            rgba(222, 210, 240, 0.25) 0%,
+            rgba(247, 240, 255, 0.45) 100%);
+    padding: 4rem 2rem;
+    color: var(--green-700);
+}
+
+.purple-tint p {
+    color: #222;
+    /* or var(--ink-900) if you prefer your main text color */
+}
+
+/* In-Network section text styling */
+.purple-tint p,
+.purple-tint ul,
+.purple-tint li {
+    color: #111;
+    /* deep near-black text */
+}
+
+.purple-tint ul li {
+    font-weight: 800;
+    /* extra-bold for maximum clarity */
 }
