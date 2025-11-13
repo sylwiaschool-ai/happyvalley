@@ -319,8 +319,6 @@ a:focus,
 }
 
 
-
-
 .hero img {
     display: none;
 }
@@ -340,6 +338,18 @@ section p {
     max-width: 650px;
     margin: 0.5rem auto;
 }
+
+/* Disable parallax on mobile/touch to prevent scroll jank */
+@media (max-width: 1024px),
+(pointer: coarse) {
+    .hero {
+        background-attachment: scroll !important;
+        background-position: center;
+        background-size: cover;
+    }
+}
+
+
 
 /* mobile toggle button (hidden on desktop) */
 .nav-toggle {
@@ -512,6 +522,30 @@ section p {
     color: #d7f3ea;
 }
 
+/* Improved keyboard focus visibility in the footer */
+.site-footer a:focus-visible {
+    outline: 3px solid #93c5aa;
+    /* soft green ring that meets WCAG */
+    outline-offset: 2px;
+    border-radius: .35rem;
+    text-decoration: none;
+    /* avoid double underline on focus */
+}
+
+/* Visually indicate the current page link in header and footer */
+nav a[aria-current="page"],
+.footer-nav a[aria-current="page"] {
+    text-decoration: underline;
+    text-underline-offset: 3px;
+    text-decoration-thickness: 2px;
+}
+
+/* Keep footer bottom text aligned with the top grid */
+.footer-bottom>p {
+    width: min(1100px, 92%);
+    margin: 0 auto;
+}
+
 /* Mobile footer layout */
 @media (max-width: 800px) {
     .footer-top {
@@ -535,47 +569,7 @@ section p {
     opacity: 0.85;
 }
 
-@media (prefers-color-scheme: dark) {
-    :root {
-        --paper-50: #121212;
-        /* page bg in dark */
-        --ink-900: #f5f5f5;
-        /* text in dark */
-        /* Optional: slightly tweak accents to keep contrast strong */
-        /* --green-700: #3a7a50; */
-        /* --purple-600: #7b65b6; */
-    }
-
-    body {
-        background: var(--paper-50);
-        color: var(--ink-900);
-    }
-
-    .site-header {
-        background: #161b18;
-        border-bottom-color: #27332d;
-    }
-
-    .site-header nav a:focus,
-    .site-header nav a:hover {
-        background: rgba(255, 255, 255, 0.08);
-    }
-
-    .hero::before {
-        /* Keep overlay but slightly lighter in dark mode for readability */
-        background: rgba(0, 0, 0, 0.35);
-    }
-
-
-    .site-footer {
-        background: #0b1411;
-        color: #e7f2ee;
-    }
-
-    .footer-bottom {
-        border-top-color: rgba(255, 255, 255, .14);
-    }
-}
+/* Special styling for map link in footer contact info */
 
 .footer-contact a[href*="maps"] {
     color: #cfe9df;
@@ -661,18 +655,7 @@ section p {
     color: var(--ink-900);
 }
 
-/* Family photo styling */
-.family-photo {
-    margin-top: 1rem;
-    border-radius: 0.6rem;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
-    max-width: 680px;
-    /* keeps it from stretching too wide */
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
-    /* centers the image */
-}
+/* ===== Therapist Bio Page ===== */
 
 /* Center the family photo caption */
 .photo-caption {
@@ -793,7 +776,9 @@ section[id] {
 }
 
 /* Buttons */
-.btn {
+/* Buttons (scoped to Rates page sections so they don't override global .btn) */
+.split-section .btn,
+.closing-cta .btn {
     background-color: #386641;
     color: #fff;
     padding: 0.75rem 1.5rem;
@@ -802,9 +787,11 @@ section[id] {
     font-weight: 600;
 }
 
-.btn:hover {
+.split-section .btn:hover,
+.closing-cta .btn:hover {
     background-color: #6b9080;
 }
+
 
 /* Responsive layout */
 @media (max-width: 768px) {
@@ -903,4 +890,166 @@ section[id] {
 .purple-tint ul li {
     font-weight: 800;
     /* extra-bold for maximum clarity */
+}
+
+/* ===== Global Dark Mode ===== */
+@media (prefers-color-scheme: dark) {
+
+    /* --- palette (uses your existing greens, with safe fallbacks) --- */
+    :root {
+        --paper-50: #0e1412;
+        /* page background */
+        --ink-900: #f3f8f6;
+        /* primary text */
+        --surface: #121a17;
+        /* card/section surface */
+        --muted: #cfe9df;
+        /* link/subtext */
+        --border: #2a3a33;
+        /* subtle borders */
+        /* if you already have --green-700 etc., keep them; otherwise these are fine */
+        --green-700: #386641;
+        --green-500: #6b9080;
+    }
+
+    /* Page + default text */
+    html,
+    body {
+        background-color: var(--paper-50) !important;
+        color: var(--ink-900) !important;
+    }
+
+    /* Header / nav */
+    .site-header {
+        background: #101813;
+        border-bottom: 1px solid #1e2a25;
+    }
+
+    .site-header a {
+        color: var(--muted);
+    }
+
+    .site-header nav a:focus,
+    .site-header nav a:hover {
+        background: rgba(255, 255, 255, 0.08);
+    }
+
+    /* Hero (keep image visible but text readable) */
+    .hero {
+        color: var(--ink-900);
+    }
+
+    .hero::before {
+        background: rgba(0, 0, 0, 0.5) !important;
+    }
+
+    /* stronger overlay in dark */
+
+    /* Generic sections + common surfaces */
+    section,
+    .card,
+    .service-card,
+    .service-item,
+    .rates-card,
+    .bio-wrap,
+    .cta-strip,
+    .panel,
+    .feature {
+        background: var(--surface);
+        color: var(--ink-900);
+        border: 1px solid var(--border);
+    }
+
+    /* Headings, paragraphs, lists in cards/sections */
+    section h1,
+    section h2,
+    section h3,
+    .card h1,
+    .card h2,
+    .card h3,
+    .service-card h2,
+    .service-card h3,
+    .rates-card h2,
+    .rates-card h3 {
+        color: var(--ink-900);
+    }
+
+    section p,
+    section li,
+    .card p,
+    .card li,
+    .service-card p,
+    .service-card li,
+    .rates-card p,
+    .rates-card li {
+        color: var(--ink-900);
+    }
+
+    /* Links */
+    a {
+        color: var(--muted);
+    }
+
+    a:hover,
+    a:focus {
+        color: #ffffff;
+        text-decoration: underline;
+    }
+
+    /* Buttons */
+    .btn,
+    .btn-primary,
+    .schedule-btn {
+        background: var(--green-700);
+        color: #ffffff;
+        border: 1px solid #2b4a39;
+    }
+
+    .btn:hover,
+    .btn:focus,
+    .btn-primary:hover,
+    .btn-primary:focus,
+    .schedule-btn:hover,
+    .schedule-btn:focus {
+        filter: brightness(1.1);
+    }
+
+    /* Forms (if present) */
+    input,
+    textarea,
+    select {
+        background: #0f1714;
+        color: var(--ink-900);
+        border: 1px solid var(--border);
+    }
+
+    input::placeholder,
+    textarea::placeholder {
+        color: #a7c7bc;
+    }
+
+    /* Footer */
+    .site-footer {
+        background: #0b1411;
+        color: #e7f2ee;
+    }
+
+    .footer-bottom {
+        border-top: 1px solid rgba(255, 255, 255, .14);
+    }
+
+    .footer-nav a,
+    .footer-contact a,
+    .footer-contact a[href*="maps"] {
+        color: var(--muted);
+    }
+
+    .footer-contact a[href*="maps"]:hover {
+        color: #ffffff;
+    }
+
+    /* Lists: make bullets visible if you use inside bullets */
+    li::marker {
+        color: #8bd4b5;
+    }
 }
