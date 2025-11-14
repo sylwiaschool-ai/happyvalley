@@ -13,6 +13,8 @@
     /* text */
     --paper-50: #fdfdfd;
     /* page bg */
+    /* Tell browsers this site is light-mode only */
+    color-scheme: light;
 }
 
 /* Hide visually but keep readable for screen readers (WCAG accessible) */
@@ -1052,4 +1054,14 @@ section[id] {
     li::marker {
         color: #8bd4b5;
     }
+}
+
+/* Add breathing room between hero heading and subheading */
+.hero h1 {
+    margin-bottom: 1rem;
+}
+
+/* Add space between the subheading and buttons in the hero */
+.hero .hero-text {
+    margin-bottom: 1.5rem;
 }
