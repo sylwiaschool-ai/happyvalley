@@ -691,34 +691,47 @@ nav a[aria-current="page"],
     flex-direction: column;
     align-items: center;
     gap: 1.5rem;
-    max-width: 750px;
+    max-width: 900px;
     margin: 0 auto;
 }
 
-.bio-photo {
-    border-radius: 0.6rem;
-    max-width: 250px;
-    height: auto;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
-}
+
 
 .bio-text {
     text-align: left;
     line-height: 1.7;
-    font-size: 1rem;
+    font-size: 0.97rem;
     color: #333;
 }
+
+.bio-photo {
+    width: 360px;
+    /* desktop size */
+    max-width: 100%;
+    /* keeps it responsive if container is smaller */
+    height: auto;
+    border-radius: 0.6rem;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
+}
+
+
 
 /* spacing between therapist and family photo */
 .family-photo {
     margin-top: 2rem;
     border-radius: 0.6rem;
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
-    max-width: 680px;
+
+    width: 100%;
+    /* ⬅️ override the 360px from .bio-photo */
+    max-width: 550px;
+    /* ⬅️ controls how big it can get overall */
+
     display: block;
     margin-left: auto;
     margin-right: auto;
 }
+
 
 /* responsive tweaks for smaller screens */
 @media (max-width: 600px) {
@@ -896,6 +909,38 @@ section[id] {
     font-weight: 800;
     /* extra-bold for maximum clarity */
 }
+
+/* ===== What Therapy Feels Like – faint background ===== */
+#what-therapy-feels-like {
+    position: relative;
+    overflow: hidden;
+    /* keeps the faint background inside */
+}
+
+#what-therapy-feels-like::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: url('/images/sunset-diff.jpg') center / cover no-repeat;
+    opacity: 0.15;
+    /* soft faint effect */
+    z-index: 0;
+}
+
+
+
+#what-therapy-feels-like .therapy-feels-content {
+    position: relative;
+    z-index: 1;
+    /* keeps text above the faint background */
+}
+
+
+
+
+
+
+
 
 /* ===== Global Dark Mode ===== */
 @media (prefers-color-scheme: dark) {
