@@ -48,3 +48,19 @@ const y = document.getElementById('year');
 if (y) {
     y.textContent = new Date().getFullYear();
 }
+// ===== Copy email to clipboard =====
+const copyEmailLink = document.getElementById("copy-email");
+
+if (copyEmailLink) {
+    copyEmailLink.addEventListener("click", () => {
+        const email = "sylwia@happyvalleycounselingutah.com";
+
+        navigator.clipboard.writeText(email)
+            .then(() => {
+                alert("Email address copied!");
+            })
+            .catch(() => {
+                alert("Could not copy email.");
+            });
+    });
+}

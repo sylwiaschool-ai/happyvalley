@@ -583,6 +583,17 @@ nav a[aria-current="page"],
     color: #ffffff;
 }
 
+/* Style for the 'Copy email address' link */
+#copy-email {
+    color: #cfe9df;
+    text-decoration: underline;
+    cursor: pointer;
+}
+
+#copy-email:hover {
+    color: #ffffff;
+}
+
 
 /* ===== Therapy Services: compact cards (title → image → text) ===== */
 .services .section-hero {
@@ -820,14 +831,6 @@ section[id] {
     max-width: 60ch;
 }
 
-#rates-hero .cta-group {
-    display: flex;
-    flex-wrap: wrap;
-    /* allows buttons to wrap on mobile */
-    justify-content: center;
-    gap: 0.75rem;
-    /* space between buttons */
-}
 
 
 
